@@ -13,44 +13,18 @@ class _TextAnimationState extends State<TextAnimation> {
   bool switchAnim = false;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Center(
-      child: Column(
-        children: [
-          AnimatedSwitcher(
-            duration: Duration(seconds: 3),
-            
-            child: getWdiget(),
+    return const Scaffold(
+      body: Center(
+        child: AnimatedDefaultTextStyle(
+          duration: Duration(seconds: 1),
+          style: TextStyle(
+              fontSize: 100, fontWeight: FontWeight.bold, color: Colors.blue),
+          child: Text(
+            'AmirahmadAdibi',
+            style: TextStyle(fontSize: 20),
           ),
-          ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  switchAnim = !switchAnim;
-                });
-              },
-              child: Text('click on me'))
-        ],
+        ),
       ),
-    ));
-  }
-
-  Widget getWdiget() {
-    return (switchAnim) ? getFirst() : getSecond();
-  }
-
-  Widget getFirst() {
-    return Container(
-      height: 200,
-      width: 400,
-      color: Colors.red,
-    );
-  }
-
-  Widget getSecond() {
-    return Container(
-      height: 100,
-      width: 300,
-      color: Colors.blue,
     );
   }
 }
